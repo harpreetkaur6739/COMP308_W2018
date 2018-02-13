@@ -1,3 +1,4 @@
 exports.render = function(req, res){
-    res.render('thankyou');
+    var session = req.session;
+    res.render('thankyou', {userName: session.username});
 }
