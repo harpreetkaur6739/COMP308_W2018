@@ -5,12 +5,31 @@ body {
 
 .container {
     width: fit-content;
-    background-color: #ccc;
-    padding: 100px 100px;
+    background-color: #8aabe4;
+    padding: 20px 30px;
     position: absolute;
-    left: 30%;
+    left: 35%;
 }
 
-#loginContainer{ 
-    top: 20%;   
+#loginContainer { 
+    top: 30%;   
+}
+
+.heading {
+    text-align: center;
+}
+
+.button {
+    padding: 5px;
+    margin-top:15px;
+    text-align: center;
+}
+
+.btnDiv {
+    text-align: center;
+}
+
+tr {
+    padding: 5px;
+    margin-top: 10px;
 }
