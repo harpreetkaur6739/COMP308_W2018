@@ -5,8 +5,13 @@
     </head>
     <body>
         <div>
-            <table>
+            <table id="custfeedback">
                 <th><td>Customer Name</td><td>Feedback</td></th>
+                
+                <% customerList.forEach(function(dbData){ %>
+                    <tr><td><%= dbData.email %></td><td> <%= dbData.feedback %></td></tr>        
+                <% }); %>
+                
             </table>
         </div>
     </body>
