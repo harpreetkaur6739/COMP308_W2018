@@ -22,4 +22,22 @@ exports.viewfeedback = function(req, res, next){
             });*/
         }
     });
-}
+};
+
+exports.authenticate = function(req, res, next){
+    console.log('request: ' + req);
+    console.log('username: ' + req.userName);
+    console.log('password: ' + req.password);
+    Customer.authenticate(req.userName,req.password, function(success){
+        console.log(success);
+        if(!success){
+            return next(err);
+        }else{
+            res.render('feedback');
+           /* res.render('viewcustomerfeedback', {
+               userName : customers.email,
+               feedback : customers.feedback
+            });*/
+        }
+    })
+};
