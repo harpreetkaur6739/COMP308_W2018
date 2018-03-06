@@ -1,4 +1,4 @@
-var config = require('./config'),
+const config = require('./config'),
     express = require('express'),
     morgan = require('morgan')
     compress = require('compression'),

@@ -25,19 +25,55 @@ exports.viewfeedback = function(req, res, next){
 };
 
 exports.authenticate = function(req, res, next){
-    console.log('request: ' + req);
-    console.log('username: ' + req.userName);
-    console.log('password: ' + req.password);
-    Customer.authenticate(req.userName,req.password, function(success){
-        console.log(success);
+    console.log('request: ' + req.body.email);
+    console.log('customer: ' + customer);
+    console.log('username: ' + req.body.email);
+    console.log('password: ' + req.body.password);
+    var customer = new Customer();
+    Customer.findOne({
+        email: req.body.email
+    }, (err, customer) => {
+        console.log('returned from function');
+        // If an error occurs continue to the next middleware
+        if (err) {
+            console.log('error1: '+err);
+            return next(err);
+        }
+        
+        // If a user was not found, continue to the next middleware with an error message
+        if (!customer) {
+            console.log('customer not found');
+            res.render('login', {
+                message: 'Unknown user'
+            });
+            return;
+        }
+        console.log('customer found.'+customer);
+        // If the passport is incorrect, continue to the next middleware with an error message
+        if (!customer.authenticate(req.body.password)) {
+            console.log('authentication failed');
+            res.render('login',{
+                message: 'Invalid password'
+            });
+        }
+        console.log('success authentication');
+        // Otherwise, continue to the next middleware with the user object
+        res.render('feedback',{
+            customer: customer
+        });
+    });
+    //var customer = new Customer(req.body);
+   
+   /* customer.authenticate(Customer, function(success){
+        console.log('authenticated: ' + success);
         if(!success){
             return next(err);
         }else{
             res.render('feedback');
-           /* res.render('viewcustomerfeedback', {
+            res.render('viewcustomerfeedback', {
                userName : customers.email,
                feedback : customers.feedback
-            });*/
+            });
         }
-    })
+    })*/
 };

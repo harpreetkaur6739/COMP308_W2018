@@ -13,8 +13,11 @@ let CustomerSchema = new Schema({
     contactNum : Number
 });
 
-CustomerSchema.statics.authenticate = function authenticate(username, password){
-    return this.email === username && this.password === password;
+CustomerSchema.methods.authenticate = function authenticate(password){
+    //console.log('user:' + Customer.email + ', password: ' + Customer.password);
+   // console.log(email + '-' + password);
+   // console.log('authentication result:' + this.email === customer.email && this.password === customer.password);
+    return this.password === password;
 }
 
 mongoose.model('Customer', CustomerSchema);
