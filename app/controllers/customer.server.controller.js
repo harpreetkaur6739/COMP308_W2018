@@ -5,7 +5,7 @@ exports.create = function(req, res, next){
         if(err){
             return next(err);
         }else{
-            res.render('login');
+            res.render('signup', {status: 'success'});
         }
     });
 };
@@ -40,10 +40,6 @@ exports.viewfeedback = function(req, res, next){
             return next(err);
         }else{
             res.render('viewcustomerfeedback', { customerList : customers });
-           /* res.render('viewcustomerfeedback', {
-               userName : customers.email,
-               feedback : customers.feedback
-            });*/
         }
     });
 };
@@ -86,18 +82,4 @@ exports.authenticate = function(req, res, next){
             customer: customer
         });
     });
-    //var customer = new Customer(req.body);
-   
-   /* customer.authenticate(Customer, function(success){
-        console.log('authenticated: ' + success);
-        if(!success){
-            return next(err);
-        }else{
-            res.render('feedback');
-            res.render('viewcustomerfeedback', {
-               userName : customers.email,
-               feedback : customers.feedback
-            });
-        }
-    })*/
 };

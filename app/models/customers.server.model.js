@@ -6,9 +6,14 @@ let CustomerSchema = new Schema({
     email : {
         type : String,
         trim : true,
-        unique : true
+        unique : true,
+		required : 'Email is required',
+		match: [/.+\@.+\..+/, "Please fill a valid email address"]
     },
-    password : String,
+    password : {
+        type: String,
+        required: 'Password is required'
+	},
     gender : String,
     contactNum : Number,
     feedBack : String
