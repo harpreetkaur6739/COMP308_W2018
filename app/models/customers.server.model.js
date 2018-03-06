@@ -10,7 +10,8 @@ let CustomerSchema = new Schema({
     },
     password : String,
     gender : String,
-    contactNum : Number
+    contactNum : Number,
+    feedBack : String
 });
 
 CustomerSchema.methods.authenticate = function authenticate(password){

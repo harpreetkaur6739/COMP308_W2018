@@ -10,6 +10,29 @@ exports.create = function(req, res, next){
     });
 };
 
+exports.submitFeedback = function(req, res, next){
+    //initialize findOneAndUpdate method arguments
+    console.log('email:' + req.body.email);
+    var query = { "email": req.body.email };
+    var update = req.body;
+    console.log('customer:' + customer);
+    var options = { new: true };
+    var customer = new Customer();
+    // Use the 'User' static 'findOneAndUpdate' method to update a specific user by user name
+    Customer.findOneAndUpdate(query, update, options, (err, customer) => {
+        if (err) {
+            // Call the next middleware with an error message
+            return next(err);
+        } else {
+            // Use the 'response' object to send a JSON response
+            //res.json(user);
+            res.render('thankyou',{
+                userName: 'test'
+            }) //display all users
+        }
+    })
+};
+
 exports.viewfeedback = function(req, res, next){
     Customer.find({}, function(err, customers){
         if(err){

@@ -3,4 +3,5 @@ module.exports = function(app){
     app.route('/signup').post(customers.create);
     app.route('/viewfeedback').get(customers.viewfeedback);
     app.route('/authenticate').post(customers.authenticate);
+    app.route('/submitFeedback').post(customers.submitFeedback);
 }

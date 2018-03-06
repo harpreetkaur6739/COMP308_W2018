@@ -6,16 +6,17 @@
     
     
     <body>
-        <form action="thankyou" method="POST">
+        <form action="submitFeedback" method="POST">
             <div class="container">
                 <div class="heading"><h3>Enter feedback</h3></div>
+                <input type="hidden" name= "email" value="<%= customer.email %>" />
                 <table>
-                    <tr><td>First Name: </td><td><input type = "text" name="firstName"/></td></tr>
-                    <tr><td>Last Name: </td><td><input type = "text" name="lastName"/></td></tr>
+                    <tr><td>First Name: </td><td><%= customer.firstName %></td></tr>
+                    <tr><td>Last Name: </td><td><%= customer.lastName %></td></tr>
                     <tr><td>Email: </td><td><%= customer.email %></td></tr>
-                    <tr><td>Graduation Year: </td><td><input type = "number" name="graduationYear"/></td></tr>
-                    <tr><td>Program Name: </td><td><input type = "text" name="programName"/></td></tr>
-                    <tr><td>Comments: </td><td><textarea name="comments" style="width: 170px; height:100px"></textarea></td></tr>                    
+                    <tr><td>Gender: </td><td><%= customer.gender %></td></tr>
+                    <tr><td>Contact: </td><td><%= customer.contactNum %></td></tr>
+                    <tr><td>Comments: </td><td><textarea name="feedBack" style="width: 170px; height:100px"></textarea></td></tr>                    
                 </table>
                 <div class= "btnDiv"><input type="Submit" value="Submit Feedback" class = "button"/></div>
         </div>
