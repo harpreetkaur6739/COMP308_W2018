@@ -2,11 +2,12 @@
 <html>
     <head>
             <link href="content/main.css" rel="stylesheet" type="text/css">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     </head>
     <body>
         <div class = "container">
-            <p>Thank You for submitting your feedback, <%= userName %>!!</p>
-            <p>Feedback: <%= comment %></p>
+            <p>Thank You for submitting your feedback, <span style="color:red"><%= userName %>!!</span></p>
+            <h4>Feedback: </h4><%= comment %></p>
         </div>
         <a href="/viewfeedback">View all customers' feedbacks</a>
 </body>

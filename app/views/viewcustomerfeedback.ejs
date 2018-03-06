@@ -2,17 +2,22 @@
 <html>
     <head>
         <link href="content/main.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     </head>
     <body>
-        <div>
-            <table id="custfeedback">
-                <th><td>Customer Name</td><td>Feedback</td></th>
-                
-                <% customerList.forEach(function(dbData){ %>
-                    <tr><td><%= dbData.email %></td><td> <%= dbData.feedBack %></td></tr>        
-                <% }); %>
-                
+        <div class="container">
+            <table class="table table-bordered">
+                <thead>
+                    <th>Customer Email</th>
+                    <th>Feed Back</th>
+                </thead>
+                <tbody>
+                    <% customerList.forEach(function(dbData){ %>
+                        <tr><td><%= dbData.email %></td><td><%= dbData.feedBack %></td></tr>
+                    <% }); %>
+                </tbody>
             </table>
+                
         </div>
     </body>
 </html>
