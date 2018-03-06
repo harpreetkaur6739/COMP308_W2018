@@ -27,7 +27,8 @@ exports.submitFeedback = function(req, res, next){
             // Use the 'response' object to send a JSON response
             //res.json(user);
             res.render('thankyou',{
-                userName: 'test'
+                userName: customer.firstName + ' ' + customer.lastName,
+                comment:customer.feedBack
             }) //display all users
         }
     })
